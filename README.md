@@ -1,10 +1,8 @@
 # SaborLab – Plataforma de Gestión Culinaria
 
-**Autor:** Jaime Mora González
-**Curso:** Proyecto Integradro 1 
-
-**Profesor:** Veronica Isabel Mora Lezcano
-
+**Autor:** Jaime Mora González  
+**Curso:** Proyecto Integrador I  
+**Profesor:** Verónica Isabel Mora Lezcano  
 **Fecha:** 27/10/2025  
 
 ---
@@ -32,16 +30,20 @@ El sistema busca optimizar la planificación de comidas según presupuesto e ing
   - `style:` formato o estilos  
   - `docs:` cambios en documentación  
   - `refactor:` reestructuración interna  
+  - `chore:` tareas de mantenimiento  
+  - `test:` pruebas o validación de código  
+  - `build:` configuración o compilación  
 
-Ejemplo:  
+**Ejemplo:**  
 `feat: agregar búsqueda por ingredientes disponibles`
 
 ---
 
 ## Estructura del repositorio
+```text
 docs/
-└── team-agreements.md
-└── minuta-validacion-saborlab.md
+├── team-agreements.md
+├── minuta-validacion-saborlab.md
 requirements/
 ├── functional-requirements.md
 └── non-functional-requirements.md
@@ -50,8 +52,50 @@ src/
 ├── js/
 ├── assets/
 └── views/
+```
+
+📄 Documentos de validación: [Minuta de validación con cliente](./docs/minuta-validacion-saborlab.md)
+
+---
+
+### Convenciones de nomenclatura y formato de código
+
+**Archivos y carpetas**
+- Todos los nombres en `kebab-case` (ej. `main-page.html`, `event-card.css`).
+- Estructura general:
+  ```
+  /css/
+  /js/
+  /img/
+  /docs/
+  /requirements/
+  ```
+
+---
+
+**HTML**
+- Indentación de 2 espacios.  
+- Atributos en minúsculas.  
+- Uso de `alt` descriptivo en imágenes.  
+- Clases CSS con `kebab-case` (`.main-header`, `.btn-primary`).  
+
+**CSS**
+- Variables o tokens de color en `:root`.  
+- Comentarios con `/* descripción corta */`.  
+- Un selector por línea, llaves alineadas.  
+
+**JavaScript**
+- Variables y funciones en `camelCase`.  
+- Clases (si se usan) en `PascalCase`.  
+- Constantes globales en `UPPER_SNAKE_CASE`.  
+- Comentarios con `//` para inline y `/** */` para funciones.  
+
+---
 
 ## Contacto
-📧 **Jaime Mora** – jmoragon@ucenfotec.ac.cr
-##
-Proyecto académico – Avance 1, Ingeniería de Software
+📧 **Jaime Mora** – jmoragon@ucenfotec.ac.cr  
+
+---
+
+Proyecto académico – *Avance 1, Proyecto integrador 1*  
+> Este repositorio corresponde al avance del proyecto académico **SaborLab** dentro del curso *Proyecto Integrador I*, y tiene fines estrictamente educativos.
