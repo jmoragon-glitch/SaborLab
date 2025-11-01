@@ -1,8 +1,10 @@
 # SaborLab – Plataforma de Gestión Culinaria
 
-**Autor:** Jaime Mora  
-**Curso:** Introducción a la Ingeniería de Software  
-**Profesor:** ⟦Nombre del profesor⟧  
+**Autor:** Jaime Mora González
+**Curso:** Proyecto Integradro 1 
+
+**Profesor:** Veronica Isabel Mora Lezcano
+
 **Fecha:** 27/10/2025  
 
 ---
@@ -37,6 +39,19 @@ Ejemplo:
 ---
 
 ## Estructura del repositorio
+docs/
+└── team-agreements.md
+└── minuta-validacion-saborlab.md
+requirements/
+├── functional-requirements.md
+└── non-functional-requirements.md
+src/
+├── css/
+├── js/
+├── assets/
+└── views/
 
 ## Contacto
 📧 **Jaime Mora** – jmoragon@ucenfotec.ac.cr
+##
+Proyecto académico – Avance 1, Ingeniería de Software
