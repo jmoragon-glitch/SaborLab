@@ -18,12 +18,31 @@
   <hr>
 
   <main>
-    <h2>Recetas disponibles</h2>
+  <h2>Recetas disponibles</h2>
 
-    <div id="listaRecetas">
-      Cargando recetas...
-    </div>
-  </main>
+  <section id="filtros">
+    <form id="formFiltros">
+      <label>
+        Categoría:
+        <input type="text" id="filtroCategoria" placeholder="Ej: Pasta, Postre, Desayuno">
+      </label>
+
+      <label style="margin-left: 1rem;">
+        Ingrediente:
+        <input type="text" id="filtroIngrediente" placeholder="Ej: pollo, arroz, pesto">
+      </label>
+
+      <button type="submit">Buscar</button>
+      <button type="button" id="btnLimpiar">Limpiar</button>
+    </form>
+  </section>
+
+  <hr>
+
+  <div id="listaRecetas">
+    Cargando recetas...
+  </div>
+</main>
 
   <script src="./js/recetas.js"></script>
 </body>

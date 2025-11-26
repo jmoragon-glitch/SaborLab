@@ -54,7 +54,7 @@ router.get("/", async (req, res) => {
     const filtro = {};
 
     if (categoria) {
-      filtro.categoria = categoria;
+      filtro.categoria = { $regex: categoria, $options: "i" };
     }
 
     if (ingrediente) {
