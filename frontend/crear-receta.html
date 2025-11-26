@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Crear receta – SaborLab</title>
+  <link rel="stylesheet" href="./css/estilos.css">
+</head>
+<body>
+
+  <header class="main-header">
+    <h1 class="logo">SaborLab</h1>
+    <nav class="main-nav">
+      <a href="./index.html">Inicio</a>
+      <a href="./recetas.html">Ver recetas</a>
+      <a href="./crear-receta.html">Crear receta</a>
+    </nav>
+  </header>
+  <hr>
+
+  <h2>Crear nueva receta</h2>
+
+  <form id="formCrearReceta">
+    <label>
+      Título*:<br>
+      <input type="text" id="titulo" required>
+    </label>
+    <br><br>
+
+    <label>
+      Descripción:<br>
+      <textarea id="descripcion" rows="3"></textarea>
+    </label>
+    <br><br>
+
+    <label>
+      Categoría:<br>
+      <input type="text" id="categoria" placeholder="Ej: Pasta, Postre, Vegano">
+    </label>
+    <br><br>
+
+    <label>
+      Dificultad:<br>
+      <select id="dificultad">
+        <option value="facil">Fácil</option>
+        <option value="media">Media</option>
+        <option value="dificil">Difícil</option>
+      </select>
+    </label>
+    <br><br>
+
+    <label>
+      Tiempo de preparación (minutos):<br>
+      <input type="number" id="tiempoPreparacion" min="1">
+    </label>
+    <br><br>
+
+    <label>
+      Porciones:<br>
+      <input type="number" id="porciones" min="1">
+    </label>
+    <br><br>
+
+    <label>
+      Presupuesto por porción (₡):<br>
+      <input type="number" id="presupuestoPorPorcion" min="0">
+    </label>
+    <br><br>
+
+    <label>
+      Ingredientes (uno por línea):<br>
+      <small>Ej: Pasta 200 g / Pesto 100 g</small><br>
+      <textarea id="ingredientes" rows="4"></textarea>
+    </label>
+    <br><br>
+
+    <label>
+      Pasos (uno por línea):<br>
+      <textarea id="pasos" rows="4"></textarea>
+    </label>
+    <br><br>
+
+    <button type="submit">Guardar receta</button>
+  </form>
+
+  <p id="mensaje"></p>
+
+  <p>
+    <a href="./recetas.html">Volver a la lista de recetas</a>
+  </p>
+
+  <script src="./js/crear-receta.js"></script>
+</body>
+</html>
