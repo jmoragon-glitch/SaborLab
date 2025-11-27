@@ -52,19 +52,29 @@ document.addEventListener("DOMContentLoaded", () => {
       contenedor.innerHTML = "";
 
       recetas.forEach((receta) => {
-        const div = document.createElement("div");
-        div.classList.add("receta-card");
+  const col = document.createElement("div");
+  col.classList.add("col-12", "col-md-6", "col-lg-4");
 
-        div.innerHTML = `
-          <h3>${receta.titulo}</h3>
-          <p>${receta.descripcion || "Sin descripción"}</p>
-          <p><strong>Categoría:</strong> ${receta.categoria || "N/A"}</p>
-          <p><strong>Dificultad:</strong> ${receta.dificultad || "N/A"}</p>
-          <a href="./views/receta-detalle.html?id=${receta._id}">Ver detalle</a>
-        `;
+  col.innerHTML = `
+    <article class="card h-100" aria-label="Receta ${receta.titulo}">
+      <div class="card-body">
+        <h2 class="card-title h5">${receta.titulo}</h2>
+        <p class="card-text">${receta.descripcion || "Sin descripción"}</p>
+        <p class="card-text">
+          <strong>Categoría:</strong> ${receta.categoria || "N/A"}<br>
+          <strong>Dificultad:</strong> ${receta.dificultad || "N/A"}
+        </p>
+        <a class="btn btn-sm btn-outline-primary"
+           href="./views/receta-detalle.html?id=${receta._id}">
+          Ver detalle
+        </a>
+      </div>
+    </article>
+  `;
 
-        contenedor.appendChild(div);
-      });
+  contenedor.appendChild(col);
+});
+
     } catch (error) {
       console.error("Error en fetch /api/recetas:", error);
       contenedor.textContent = "Error de conexión con el servidor.";
