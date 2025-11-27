@@ -28,16 +28,30 @@
         <div class="collapse navbar-collapse" id="mainNav">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="./index.html">Inicio</a>
+              <a class="nav-link" href="./index.html">Inicio</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="./recetas.html">Ver recetas</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" id="navCrearReceta">
               <a class="nav-link" href="./crear-receta.html">Crear receta</a>
             </li>
-            <a class="nav-link" href="./login.html">Iniciar sesión</a>
-          </ul>
+            <!-- Cuando NO hay sesión -->
+            <li class="nav-item" id="navLogin">
+              <a class="nav-link" href="./login.html">Iniciar sesión</a>
+            </li>
+
+            <!-- Cuando SÍ hay sesión -->
+            <li class="nav-item dropdown d-none" id="navUsuario">
+              <a class="nav-link dropdown-toggle" href="#" id="navUserDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              <span id="navUserName">Usuario</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navUserDropdown">
+              <li><button class="dropdown-item" id="btnLogout" type="button">Cerrar sesión</button></li>
+            </ul>
+          </li>
+        </ul>
         </div>
       </div>
     </nav>
@@ -80,6 +94,7 @@
     </section>
   </main>
 
+  <script src="./js/sesion.js"></script>
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
   ></script>
