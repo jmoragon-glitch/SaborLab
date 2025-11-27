@@ -1,32 +1,87 @@
-<body>
-  <header class="main-header">
-    <h1 class="logo">SaborLab</h1>
-    <nav class="main-nav">
-      <a href="./index.html">Inicio</a>
-      <a href="./recetas.html">Ver recetas</a>
-      <a href="./crear-receta.html">Crear receta</a>
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Inicio – SaborLab</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
     rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-    crossorigin="anonymous">
-     <link rel="stylesheet" href="./css/estilos.css">
+  />
+
+  <!-- Tus estilos -->
+  <link rel="stylesheet" href="./css/estilos.css" />
+</head>
+<body class="bg-light">
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom" aria-label="Navegación principal">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="./index.html">SaborLab</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                aria-controls="mainNav" aria-expanded="false" aria-label="Mostrar u ocultar navegación">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./recetas.html">Ver recetas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./crear-receta.html">Crear receta</a>
+            </li>
+            <!-- Más adelante aquí podemos poner "Iniciar sesión" -->
+          </ul>
+        </div>
+      </div>
     </nav>
   </header>
-  <hr>
 
-  <main>
-    <h2>Bienvenido a SaborLab</h2>
-    <p>Plataforma de gestión y descubrimiento de recetas culinarias.</p>
+  <main class="container my-5">
+    <section class="row align-items-center g-4">
+      <div class="col-md-6">
+        <h1 class="h2 mb-3">Bienvenido a SaborLab</h1>
+        <p class="lead">
+          Plataforma digital colaborativa para descubrir, gestionar y crear recetas
+          según presupuesto, preferencias e ingredientes disponibles.
+        </p>
 
-    <p>
-      <a href="./recetas.html">Ver todas las recetas</a><br>
-      <a href="./crear-receta.html">Crear una nueva receta</a>
-    </p>
+        <p>
+          <a href="./recetas.html" class="btn btn-primary me-2">
+            Ver recetas
+          </a>
+          <a href="./crear-receta.html" class="btn btn-outline-secondary">
+            Crear nueva receta
+          </a>
+        </p>
+      </div>
+
+      <div class="col-md-6">
+        <section aria-label="Características principales de SaborLab">
+          <div class="card">
+            <div class="card-body">
+              <h2 class="h5 mb-3">¿Qué puedes hacer en SaborLab?</h2>
+              <ul class="mb-0">
+                <li>Explorar recetas filtrando por categoría e ingredientes.</li>
+                <li>Crear y registrar recetas con ingredientes y pasos detallados.</li>
+                <li>Visualizar el detalle completo de cada receta.</li>
+                <li>(Próximamente) Gestionar roles de chef y usuario regular.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
   </main>
-  <script
-  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-  crossorigin="anonymous"
-></script>
 
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  ></script>
 </body>
+</html>
