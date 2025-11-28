@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       const data = await response.json();
+      console.log("Respuesta de /login:", data);
 
       if (!response.ok) {
         mensaje.textContent = data.mensajeError || "Error al iniciar sesión";
@@ -23,8 +24,13 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      // Guardar sesión en localStorage
-      localStorage.setItem("usuario", JSON.stringify(data));
+      // 👇 AQUÍ está el cambio importante:
+      // Si el backend responde { mensaje, usuario }, tomamos data.usuario.
+      // Si en algún momento responde solo el usuario, usamos data directamente.
+      const usuario = data.usuario ?? data;
+
+      // Guardar SOLO el usuario en localStorage
+      localStorage.setItem("usuario", JSON.stringify(usuario));
 
       // Redirigir a inicio
       window.location.href = "./index.html";
