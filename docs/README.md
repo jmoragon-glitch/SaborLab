@@ -1,101 +1,207 @@
-# SaborLab – Plataforma de Gestión Culinaria
+# 🍽️ SaborLab -- Plataforma de Gestión Culinaria
 
-**Autor:** Jaime Mora González  
-**Curso:** Proyecto Integrador I  
+**Proyecto Integrador -- Universidad Cenfotec**\
+**Autor:** Jaime Mora González
 **Profesor:** Verónica Isabel Mora Lezcano  
-**Fecha:** 27/10/2025  
+**Fecha:** 29/11/2025  
 
----
+------------------------------------------------------------------------
 
-## Descripción general
-**SaborLab** es una plataforma web que permitirá a los usuarios registrar, buscar y gestionar recetas culinarias de forma accesible y colaborativa.  
-El sistema busca optimizar la planificación de comidas según presupuesto e ingredientes disponibles, promoviendo una comunidad digital de cocina.
+## 🎯 1. Descripción del proyecto
 
----
+SaborLab es una plataforma digital colaborativa para la gestión y
+descubrimiento de recetas culinarias.\
+Permite a los usuarios crear, consultar y administrar recetas según
+presupuesto, dificultad, categoría e ingredientes disponibles.
 
-## Convenciones de código
-- Archivos y carpetas: `lowercase-kebab-case`  
-- Variables y funciones: `camelCase`  
-- Componentes Vue (si aplica): `PascalCase`  
-- Archivos Markdown: inglés, extensión `.md`
+El sistema implementa autenticación por roles (**chef** y **usuario
+regular**) y operaciones CRUD esenciales sobre recetas, incluyendo
+creación, lectura filtrada, vista detallada y eliminación (solo para
+chefs).
 
----
+------------------------------------------------------------------------
 
-## Estrategia de ramas y commits
-- Rama principal: `main`  
-- Rama de desarrollo: `dev`  
-- Convención de commits:
-  - `feat:` nueva funcionalidad  
-  - `fix:` corrección de error  
-  - `style:` formato o estilos  
-  - `docs:` cambios en documentación  
-  - `refactor:` reestructuración interna  
-  - `chore:` tareas de mantenimiento  
-  - `test:` pruebas o validación de código  
-  - `build:` configuración o compilación  
+## 🏗️ 2. Arquitectura del sistema
 
-**Ejemplo:**  
-`feat: agregar búsqueda por ingredientes disponibles`
+### 🔹 Frontend (HTML + CSS + JS + Bootstrap local)
 
----
+-   Vistas estáticas accesibles (WCAG AA)
+-   Validación en formularios
+-   Navbar dinámico según rol
+-   Toasts accesibles
+-   Skip links, ARIA roles y estructura semántica
 
-## Estructura del repositorio
-```text
-docs/
-├── team-agreements.md
-├── minuta-validacion-saborlab.md
-requirements/
-├── functional-requirements.md
-└── non-functional-requirements.md
-src/
-├── css/
-├── js/
-├── assets/
-└── views/
+### 🔹 Backend (Node.js + Express)
+
+-   API REST estructurada
+-   Validaciones de servidor
+-   Control básico de roles
+-   Manejo de sesiones vía frontend (localStorage)
+
+### 🔹 Base de datos (MongoDB Atlas + Mongoose)
+
+-   Modelo Receta (ingredientes, pasos, categorías, presupuesto)
+-   Modelo Usuario (email, contraseña hasheada, rol)
+-   IDs relacionales
+
+------------------------------------------------------------------------
+
+## 📦 3. Dependencias principales (backend)
+
+    express
+    mongoose
+    cors
+    dotenv
+    nodemon (dev)
+
+------------------------------------------------------------------------
+
+## ⚙️ 4. Instalación
+
+### 1) Clonar el repositorio
+
+``` bash
+git clone <url-del-repo>
 ```
 
-📄 Documentos de validación: [Minuta de validación con cliente](./docs/minuta-validacion-saborlab.md)
+### 2) Instalar dependencias del backend
 
----
+``` bash
+cd backend
+npm install
+```
 
-### Convenciones de nomenclatura y formato de código
+### 3) Crear archivo `.env`
 
-**Archivos y carpetas**
-- Todos los nombres en `kebab-case` (ej. `main-page.html`, `event-card.css`).
-- Estructura general:
-  ```
-  /css/
-  /js/
-  /img/
-  /docs/
-  /requirements/
-  ```
+En **/backend/.env**:
 
----
+    MONGODB_URI=tu_uri_de_mongo
+    PORT=3000
 
-**HTML**
-- Indentación de 2 espacios.  
-- Atributos en minúsculas.  
-- Uso de `alt` descriptivo en imágenes.  
-- Clases CSS con `kebab-case` (`.main-header`, `.btn-primary`).  
+> ⚠️ Importante: este archivo **NO se sube** al repositorio.
 
-**CSS**
-- Variables o tokens de color en `:root`.  
-- Comentarios con `/* descripción corta */`.  
-- Un selector por línea, llaves alineadas.  
+------------------------------------------------------------------------
 
-**JavaScript**
-- Variables y funciones en `camelCase`.  
-- Clases (si se usan) en `PascalCase`.  
-- Constantes globales en `UPPER_SNAKE_CASE`.  
-- Comentarios con `//` para inline y `/** */` para funciones.  
+## ▶️ 5. Ejecutar el proyecto
 
----
+### Iniciar backend
 
-## Contacto
-📧 **Jaime Mora** – jmoragon@ucenfotec.ac.cr  
+``` bash
+cd backend
+npm run dev
+```
 
----
+### Ejecutar frontend
 
-Proyecto académico – *Avance 1, Proyecto integrador 1*  
-> Este repositorio corresponde al avance del proyecto académico **SaborLab** dentro del curso *Proyecto Integrador I*, y tiene fines estrictamente educativos.
+Abrir manualmente:
+
+    /frontend/index.html
+
+------------------------------------------------------------------------
+
+## ⭐ 6. Funcionalidades actuales (MVP Final)
+
+### ✔ Usuarios
+
+-   Registro (roles: regular y chef)
+-   Inicio de sesión
+-   Manejo de sesión con `localStorage`
+-   Navbar dinámico según rol
+-   Restricción de funciones según rol
+
+### ✔ Recetas
+
+-   Crear receta (solo chef)
+-   Listar recetas
+-   Filtrar por categoría
+-   Filtrar por ingrediente (case-insensitive)
+-   Ver detalle
+-   Eliminar receta (solo chef)
+-   Validaciones de formulario
+-   Accesibilidad en vistas
+
+------------------------------------------------------------------------
+
+## 👤 7. Roles del sistema
+
+### 👨‍🍳 Chef
+
+-   Crear recetas
+-   Eliminar recetas
+-   Ver y buscar recetas
+
+### 🧑‍🍽️ Usuario regular
+
+-   Ver recetas
+-   Buscar recetas
+
+------------------------------------------------------------------------
+
+## 📡 8. API -- Endpoints principales
+
+### Usuarios
+
+    POST /api/usuarios
+    POST /api/usuarios/login
+
+### Recetas
+
+    GET    /api/recetas
+    GET    /api/recetas/:id
+    POST   /api/recetas
+    DELETE /api/recetas/:id
+
+------------------------------------------------------------------------
+
+## 🧱 9. Estructura del proyecto
+
+    /backend
+     ├── models/
+     ├── routes/
+     ├── index.js
+     ├── package.json
+     └── .env  (ignorado)
+
+    /frontend
+     ├── bootstrap/
+     ├── css/
+     ├── js/
+     ├── index.html
+     ├── recetas.html
+     ├── crear-receta.html
+     ├── login.html
+     └── views/
+          └── receta-detalle.html
+
+------------------------------------------------------------------------
+
+## 📝 10. Convenciones de commits
+
+  Tipo               Uso
+  ------------------ -----------------------------
+  `feat:`            Nuevas funcionalidades
+  `fix:`             Correcciones
+  `style:`           Formato, espacios, comillas
+  `docs:`            Documentación
+  `refactor:`        Reorganización del código
+  `chore:`           Configuración del proyecto
+  `accessibility:`   Mejoras de accesibilidad
+
+Ejemplo:
+
+    feat(recipes): add delete recipe confirmation modal
+
+------------------------------------------------------------------------
+
+## 🚀 11. Trabajo futuro
+
+-   Sistema de comentarios y calificaciones\
+-   Versiones derivadas de recetas\
+-   Favoritos y colecciones personales\
+-   Panel de administración\
+-   Ranking de recetas y seguidores\
+-   Planificador semanal + lista de compras\
+-   Subida de imágenes y videos\
+-   Etiquetas avanzadas y más filtros
+
+------------------------------------------------------------------------

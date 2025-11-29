@@ -4,20 +4,16 @@
   <meta charset="UTF-8" />
   <title>Inicio – SaborLab</title>
 
-  <!-- Bootstrap CSS -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
+  <!-- Bootstrap LOCAL -->
+  <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" />
 
-  <!-- estilos -->
+  <!-- Estilos -->
   <link rel="stylesheet" href="./css/estilos.css" />
 </head>
 <body class="bg-light">
 
-  <a href="#mainContent" class="visually-hidden-focusable">
-    Saltar al contenido principal
-  </a>
+  <!-- Skip link -->
+  <a href="#mainContent" class="visually-hidden-focusable">Saltar al contenido principal</a>
 
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom" aria-label="Navegación principal">
@@ -40,6 +36,7 @@
             <li class="nav-item" id="navCrearReceta">
               <a class="nav-link" href="./crear-receta.html">Crear receta</a>
             </li>
+
             <!-- Cuando NO hay sesión -->
             <li class="nav-item" id="navLogin">
               <a class="nav-link" href="./login.html">Iniciar sesión</a>
@@ -71,12 +68,8 @@
         </p>
 
         <p>
-          <a href="./recetas.html" class="btn btn-primary me-2">
-            Ver recetas
-          </a>
-          <a href="./crear-receta.html" class="btn btn-outline-secondary">
-            Crear nueva receta
-          </a>
+          <a href="./recetas.html" class="btn btn-primary me-2">Ver recetas</a>
+          <a href="./crear-receta.html" class="btn btn-outline-secondary">Crear nueva receta</a>
         </p>
       </div>
 
@@ -85,11 +78,11 @@
           <div class="card">
             <div class="card-body">
               <h2 class="h5 mb-3">¿Qué puedes hacer en SaborLab?</h2>
-              <ul class="mb-0">
+              <ul>
                 <li>Explorar recetas filtrando por categoría e ingredientes.</li>
                 <li>Crear y registrar recetas con ingredientes y pasos detallados.</li>
                 <li>Visualizar el detalle completo de cada receta.</li>
-                <li>Iniciar sesión como chef o usuario regular para ver opciones personalizadas.</li>
+                <li>(Próximamente) Gestión completa de roles.</li>
               </ul>
             </div>
           </div>
@@ -99,8 +92,6 @@
   </main>
 
   <script src="./js/sesion.js"></script>
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-  ></script>
+  <script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
