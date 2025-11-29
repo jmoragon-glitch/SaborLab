@@ -1,3 +1,6 @@
+// ===============================
+// CARGAR DETALLE DE LA RECETA
+// ===============================
 document.addEventListener("DOMContentLoaded", async () => {
   const contenedor = document.getElementById("detalleReceta");
 
@@ -28,6 +31,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     if (!respuesta.ok) {
       contenedor.textContent = "No se pudo cargar la receta (404 o error de servidor).";
+      // Opcional:
+      // mostrarToast("No se pudo cargar la receta 😢", "danger");
       return;
     }
 
@@ -36,6 +41,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     if (!receta || !receta.titulo) {
       contenedor.textContent = "La receta no existe o los datos son inválidos.";
+      // mostrarToast("La receta no existe o los datos son inválidos 😢", "danger");
       return;
     }
 
@@ -81,5 +87,87 @@ document.addEventListener("DOMContentLoaded", async () => {
   } catch (error) {
     console.error("Error en fetch /api/recetas/:id:", error);
     contenedor.textContent = "Error de conexión al cargar la receta.";
+    // mostrarToast("Error de conexión al cargar la receta 😢", "danger");
   }
 });
+
+// ===============================
+// ELIMINAR RECETA (BOTÓN + MODAL)
+// ===============================
+document.addEventListener("DOMContentLoaded", () => {
+  // Tomar el id de la receta desde la URL
+  const params = new URLSearchParams(window.location.search);
+  const recetaId = params.get("id");
+
+  const btnEliminar = document.getElementById("btnEliminarReceta");
+  const modalEliminarEl = document.getElementById("modalConfirmarEliminar");
+  const btnConfirmarEliminar = document.getElementById("btnConfirmarEliminar");
+
+  // Si falta algo, no hacemos nada
+  if (!btnEliminar || !recetaId || !modalEliminarEl || !btnConfirmarEliminar) {
+    return;
+  }
+
+  const modalEliminar = new bootstrap.Modal(modalEliminarEl);
+
+  // Cuando clickea el botón rojo en la página → mostramos el modal
+  btnEliminar.addEventListener("click", () => {
+    modalEliminar.show();
+  });
+
+  // Cuando clickea el botón "Eliminar" dentro del modal → hacemos el DELETE
+  btnConfirmarEliminar.addEventListener("click", async () => {
+    try {
+      const resp = await fetch(
+        `http://localhost:3000/api/recetas/${recetaId}`,
+        {
+          method: "DELETE"
+        }
+      );
+
+      const data = await resp.json();
+
+      if (!resp.ok) {
+        mostrarToast(
+          data.mensajeError || "No se pudo eliminar la receta 😢",
+          "danger"
+        );
+        modalEliminar.hide();
+        return;
+      }
+
+      mostrarToast("Receta eliminada correctamente 🎉", "success");
+      modalEliminar.hide();
+
+      // Redirigir al listado después de un pequeño delay
+      setTimeout(() => {
+        window.location.href = "../recetas.html";
+      }, 800);
+    } catch (error) {
+      console.error("Error al eliminar receta:", error);
+      mostrarToast("Error de conexión al eliminar la receta 😢", "danger");
+      modalEliminar.hide();
+    }
+  });
+});
+
+// ===============================
+// TOAST GENÉRICO
+// ===============================
+function mostrarToast(mensaje, tipo = "primary") {
+  const toastEl = document.getElementById("toastGeneral");
+  const toastBody = document.getElementById("toastMensaje");
+
+  if (!toastEl || !toastBody) {
+    console.warn("No se encontró el contenedor de toast en el DOM.", mensaje);
+    return; // ya NO usamos alert como fallback
+  }
+
+  toastBody.textContent = mensaje;
+
+  // Cambiar color según tipo (success, danger, warning, info, etc.)
+  toastEl.className = `toast align-items-center text-bg-${tipo} border-0`;
+
+  const toast = new bootstrap.Toast(toastEl);
+  toast.show();
+}

@@ -92,8 +92,22 @@ document.addEventListener("DOMContentLoaded", () => {
     if (navUsuario) {
       navUsuario.classList.add("d-none");
     }
+  }
+});
+     // -----------------------------
+    // Mostrar botón ELIMINAR SOLO PARA CHEFS
+   // -----------------------------
+   document.addEventListener("DOMContentLoaded", () => {
+     const btnEliminar = document.getElementById("btnEliminarReceta");
 
-    // Aquí puedes decidir si ocultar o no "Crear receta" para no logueados.
-    // Por ahora lo dejamos visible y confiamos en la protección de ruta.
+  // Si la página no tiene botón, salir
+    if (!btnEliminar) return;
+
+   // Revisar sesión
+   const usuario = JSON.parse(localStorage.getItem("usuario"));
+
+   // Si hay usuario y el rol es chef → mostrar botón
+  if (usuario && usuario.rol === "chef") {
+    btnEliminar.classList.remove("d-none");
   }
 });
