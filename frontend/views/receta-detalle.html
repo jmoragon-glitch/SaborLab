@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<head:
+<head>
   <meta charset="UTF-8" />
   <title>Detalle de receta – SaborLab</title>
 
@@ -13,35 +13,47 @@
   <!-- CSS -->
   <link rel="stylesheet" href="../css/estilos.css" />
 </head>
-<!-- MODAL DE CONFIRMACIÓN PARA ELIMINAR RECETA -->
-<div class="modal fade" id="modalConfirmarEliminar" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      
-      <div class="modal-header">
-        <h5 class="modal-title">Eliminar receta</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-      </div>
-
-      <div class="modal-body">
-        ¿Seguro que deseas eliminar esta receta?  
-        <br><span class="text-danger fw-semibold">Esta acción no se puede deshacer.</span>
-      </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Cancelar
-        </button>
-        <button type="button" class="btn btn-danger" id="btnConfirmarEliminar">
-          Eliminar
-        </button>
-      </div>
-
-    </div>
-  </div>
-</div>
 
 <body class="bg-light">
+
+  <!-- Skip link -->
+  <a href="#mainContent" class="visually-hidden-focusable">
+    Saltar al contenido principal
+  </a>
+
+  <!-- MODAL DE CONFIRMACIÓN PARA ELIMINAR RECETA -->
+  <div
+    class="modal fade"
+    id="modalConfirmarEliminar"
+    tabindex="-1"
+    aria-hidden="true"
+    aria-labelledby="modalEliminarTitulo"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalEliminarTitulo">Eliminar receta</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+
+        <div class="modal-body">
+          ¿Seguro que deseas eliminar esta receta?  
+          <br><span class="text-danger fw-semibold">Esta acción no se puede deshacer.</span>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Cancelar
+          </button>
+          <button type="button" class="btn btn-danger" id="btnConfirmarEliminar">
+            Eliminar
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom" aria-label="Navegación principal">
@@ -54,42 +66,45 @@
         </button>
 
         <div class="collapse navbar-collapse" id="mainNav">
-           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-  <li class="nav-item">
-    <a class="nav-link" href="../index.html">Inicio</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="../recetas.html">Ver recetas</a>
-  </li>
-  <li class="nav-item" id="navCrearReceta">
-    <a class="nav-link" href="../crear-receta.html">Crear receta</a>
-  </li>
-  <!-- Cuando NO hay sesión -->
-  <li class="nav-item" id="navLogin">
-    <a class="nav-link" href="../login.html">Iniciar sesión</a>
-  </li>
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../recetas.html">Ver recetas</a>
+            </li>
+            <li class="nav-item" id="navCrearReceta">
+              <a class="nav-link" href="../crear-receta.html">Crear receta</a>
+            </li>
+            <!-- Cuando NO hay sesión -->
+            <li class="nav-item" id="navLogin">
+              <a class="nav-link" href="../login.html">Iniciar sesión</a>
+            </li>
 
-  <!-- Cuando SÍ hay sesión -->
-  <li class="nav-item dropdown d-none" id="navUsuario">
-    <a class="nav-link dropdown-toggle" href="#" id="navUserDropdown" role="button"
-       data-bs-toggle="dropdown" aria-expanded="false">
-      <span id="navUserName">Usuario</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navUserDropdown">
-      <li><button class="dropdown-item" id="btnLogout" type="button">Cerrar sesión</button></li>
-    </ul>
-  </li>
-</ul>
-
+            <!-- Cuando SÍ hay sesión -->
+            <li class="nav-item dropdown d-none" id="navUsuario">
+              <a class="nav-link dropdown-toggle" href="#" id="navUserDropdown" role="button"
+                 data-bs-toggle="dropdown" aria-expanded="false">
+                <span id="navUserName">Usuario</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navUserDropdown">
+                <li><button class="dropdown-item" id="btnLogout" type="button">Cerrar sesión</button></li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
   </header>
 
-  <main class="container my-4">
+  <main id="mainContent" class="container my-4">
     <h1 class="h3 mb-4">Detalle de receta</h1>
 
-    <section id="detalleReceta" aria-live="polite">
+    <section
+      id="detalleReceta"
+      aria-live="polite"
+      role="status"
+    >
       Cargando detalles...
     </section>
     
@@ -97,25 +112,38 @@
       <a href="../recetas.html" class="btn btn-outline-secondary btn-sm">
         Volver al listado de recetas
       </a>
-      <button id="btnEliminarReceta" class="btn btn-danger d-none">
-         Eliminar receta
+      <button id="btnEliminarReceta" class="btn btn-danger btn-sm d-none">
+        Eliminar receta
       </button>
-
     </div>
   </main>
 
   <!-- Toast de Bootstrap -->
-<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999;">
-  <div id="toastGeneral" class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="d-flex">
-      <div class="toast-body" id="toastMensaje">
-        Mensaje aquí
+  <div
+    class="toast-container position-fixed bottom-0 end-0 p-3"
+    style="z-index: 9999;"
+    aria-live="polite"
+    aria-atomic="true"
+  >
+    <div
+      id="toastGeneral"
+      class="toast align-items-center text-bg-primary border-0"
+      role="status"
+      aria-atomic="true"
+    >
+      <div class="d-flex">
+        <div class="toast-body" id="toastMensaje">
+          Mensaje aquí
+        </div>
+        <button
+          type="button"
+          class="btn-close btn-close-white me-2 m-auto"
+          data-bs-dismiss="toast"
+          aria-label="Cerrar"
+        ></button>
       </div>
-      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Cerrar"></button>
     </div>
   </div>
-</div>
-
 
   <script src="../js/receta-detalle.js"></script>
   <script src="../js/sesion.js"></script>

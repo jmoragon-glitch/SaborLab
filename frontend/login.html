@@ -12,8 +12,12 @@
 </head>
 
 <body class="bg-light">
-
-  <main class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    
+  <a href="#mainContent" class="visually-hidden-focusable">
+  Saltar al contenido principal
+  </a>
+  
+  <main id="mainContent" class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
     <div class="card shadow-sm" style="max-width: 420px; width: 100%;">
       <div class="card-body">
         <h1 class="h4 mb-4 text-center">Iniciar sesión</h1>
@@ -47,7 +51,8 @@
             </button>
           </div>
 
-          <p id="mensaje" class="text-center mt-2 fw-semibold"></p>
+          <p id="mensaje" class="text-center mt-2 fw-semibold" role="status" aria-live="polite"></p>
+
         </form>
       </div>
     </div>

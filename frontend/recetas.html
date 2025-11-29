@@ -14,6 +14,11 @@
   <link rel="stylesheet" href="./css/estilos.css" />
 </head>
 <body class="bg-light">
+  
+  <!-- Skip link -->
+  <a href="#mainContent" class="visually-hidden-focusable">
+    Saltar al contenido principal
+  </a>
 
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom" aria-label="Navegación principal">
@@ -27,38 +32,37 @@
 
         <div class="collapse navbar-collapse" id="mainNav">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-  <li class="nav-item">
-    <a class="nav-link" href="./index.html">Inicio</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="./recetas.html">Ver recetas</a>
-  </li>
-  <li class="nav-item" id="navCrearReceta">
-    <a class="nav-link" href="./crear-receta.html">Crear receta</a>
-  </li>
-  <!-- Cuando NO hay sesión -->
-  <li class="nav-item" id="navLogin">
-    <a class="nav-link" href="./login.html">Iniciar sesión</a>
-  </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./recetas.html">Ver recetas</a>
+            </li>
+            <li class="nav-item" id="navCrearReceta">
+              <a class="nav-link" href="./crear-receta.html">Crear receta</a>
+            </li>
+            <!-- Cuando NO hay sesión -->
+            <li class="nav-item" id="navLogin">
+              <a class="nav-link" href="./login.html">Iniciar sesión</a>
+            </li>
 
-  <!-- Cuando SÍ hay sesión -->
-  <li class="nav-item dropdown d-none" id="navUsuario">
-    <a class="nav-link dropdown-toggle" href="#" id="navUserDropdown" role="button"
-       data-bs-toggle="dropdown" aria-expanded="false">
-      <span id="navUserName">Usuario</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navUserDropdown">
-      <li><button class="dropdown-item" id="btnLogout" type="button">Cerrar sesión</button></li>
-    </ul>
-  </li>
-</ul>
-
+            <!-- Cuando SÍ hay sesión -->
+            <li class="nav-item dropdown d-none" id="navUsuario">
+              <a class="nav-link dropdown-toggle" href="#" id="navUserDropdown" role="button"
+                 data-bs-toggle="dropdown" aria-expanded="false">
+                <span id="navUserName">Usuario</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navUserDropdown">
+                <li><button class="dropdown-item" id="btnLogout" type="button">Cerrar sesión</button></li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
   </header>
 
-  <main class="container my-4">
+  <main id="mainContent" class="container my-4">
     <h1 class="h3 mb-4">Recetas disponibles</h1>
 
     <!-- Filtros -->
@@ -98,7 +102,12 @@
     <hr />
 
     <!-- Listado de recetas -->
-    <div id="listaRecetas" class="row gy-3">
+    <div
+      id="listaRecetas"
+      class="row gy-3"
+      role="status"
+      aria-live="polite"
+    >
       Cargando recetas...
     </div>
   </main>

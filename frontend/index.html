@@ -10,10 +10,14 @@
     rel="stylesheet"
   />
 
-  <!-- Tus estilos -->
+  <!-- estilos -->
   <link rel="stylesheet" href="./css/estilos.css" />
 </head>
 <body class="bg-light">
+
+  <a href="#mainContent" class="visually-hidden-focusable">
+    Saltar al contenido principal
+  </a>
 
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom" aria-label="Navegación principal">
@@ -28,7 +32,7 @@
         <div class="collapse navbar-collapse" id="mainNav">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="./index.html">Inicio</a>
+              <a class="nav-link active" aria-current="page" href="./index.html">Inicio</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="./recetas.html">Ver recetas</a>
@@ -44,20 +48,20 @@
             <!-- Cuando SÍ hay sesión -->
             <li class="nav-item dropdown d-none" id="navUsuario">
               <a class="nav-link dropdown-toggle" href="#" id="navUserDropdown" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              <span id="navUserName">Usuario</span>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navUserDropdown">
-              <li><button class="dropdown-item" id="btnLogout" type="button">Cerrar sesión</button></li>
-            </ul>
-          </li>
-        </ul>
+                 data-bs-toggle="dropdown" aria-expanded="false">
+                <span id="navUserName">Usuario</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navUserDropdown">
+                <li><button class="dropdown-item" id="btnLogout" type="button">Cerrar sesión</button></li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
   </header>
 
-  <main class="container my-5">
+  <main id="mainContent" class="container my-5">
     <section class="row align-items-center g-4">
       <div class="col-md-6">
         <h1 class="h2 mb-3">Bienvenido a SaborLab</h1>
@@ -85,7 +89,7 @@
                 <li>Explorar recetas filtrando por categoría e ingredientes.</li>
                 <li>Crear y registrar recetas con ingredientes y pasos detallados.</li>
                 <li>Visualizar el detalle completo de cada receta.</li>
-                <li>(Próximamente) Gestionar roles de chef y usuario regular.</li>
+                <li>Iniciar sesión como chef o usuario regular para ver opciones personalizadas.</li>
               </ul>
             </div>
           </div>

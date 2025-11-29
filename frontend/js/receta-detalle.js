@@ -165,7 +165,7 @@ function mostrarToast(mensaje, tipo = "primary") {
 
   toastBody.textContent = mensaje;
 
-  // Cambiar color según tipo (success, danger, warning, info, etc.)
+  // Cambiar color según tipo (success, danger, warning, info, et  c.)
   toastEl.className = `toast align-items-center text-bg-${tipo} border-0`;
 
   const toast = new bootstrap.Toast(toastEl);
