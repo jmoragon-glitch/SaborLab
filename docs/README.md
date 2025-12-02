@@ -58,7 +58,7 @@ nodemon (dev)
 ### 1) Clonar el repositorio
 
 ```bash
-git clone <url-del-repo>
+git clone https://github.com/jmoragon-glitch/SaborLab
 ```
 
 ### 2) Instalar dependencias del backend
@@ -75,9 +75,6 @@ En **/backend/.env**:
 ```
 MONGODB_URI=mongodb+srv://jaime_mora_g:Pollo2025!@cluster0.qqcnqnj.mongodb.net/saborlab_db?appName=Cluster0
 PORT=3000
-```
-
-> ⚠️ Importante: este archivo **NO se sube** al repositorio.
 
 ---
 
