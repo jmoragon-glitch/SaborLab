@@ -33,3 +33,41 @@ body {
   margin-bottom: 0.75rem;
   border-radius: 4px;
 }
+/* Link de saltar al contenido: siempre alto contraste, pero fuera de la vista por defecto */
+.visually-hidden-focusable {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+
+  /* Alto contraste incluso en estado "normal" */
+  background-color: #0d6efd; /* azul fuerte */
+  color: #ffffff;            /* blanco */
+}
+
+/* Al recibir foco: se muestra como un botón accesible */
+.visually-hidden-focusable:focus,
+.visually-hidden-focusable:active {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  z-index: 1000;
+}
+h1, h2, h3, h4, h5, h6 {
+  color: #212529; /* gris oscuro bootstrap */
+}
+.btn-primary {
+  background-color: #0d6efd !important;
+  color: #ffffff !important;
+}
+.text-danger {
+  color: #c82333 !important; /* rojo más oscuro, usado por Bootstrap 4 */
+}
