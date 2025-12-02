@@ -205,3 +205,7 @@ Ejemplo:
 -   Etiquetas avanzadas y más filtros
 
 ------------------------------------------------------------------------
+## Estado final del proyecto
+
+La versión actual de **SaborLab** cumple con todos los requerimientos establecidos para el trabajo: CRUD completo de recetas, validaciones en frontend y backend, gestión de sesión por roles (chef y usuario regular), accesibilidad nivel AA, navegación por teclado, uso de Bootstrap local, API REST funcional y diseño responsivo. La plataforma se encuentra estable, probada y lista para su presentación formal.
+
