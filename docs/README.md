@@ -3,7 +3,7 @@
 **Proyecto Integrador -- Universidad Cenfotec**  
 **Autor:** Jaime Mora González  
 **Profesor:** Verónica Isabel Mora Lezcano  
-**Fecha:** 29/11/2025  
+**Fecha:** 01/12/2025  
 
 ---
 
